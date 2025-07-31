@@ -1,6 +1,10 @@
+/* ==========================================================================
+   Estilos Generales (Para todo el sitio)
+   ========================================================================== */
+
 body {
-    font-family: Arial, sans-serif;
-    background: url(8509329.jpg) no-repeat center;
+    font-family: Arial, sans-serif;    
+    background-color: #f4f4f4; /* Un gris muy claro para el fondo */
     margin: 0;
     min-height: 100vh;
 }
@@ -27,7 +31,7 @@ nav.menu ul li {
 }
 
 nav.menu ul li a {
-    color: #fff;
+    color: #fff; /* Texto blanco para que se lea sobre el fondo rosa */
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem;
@@ -35,8 +39,8 @@ nav.menu ul li a {
 }
 
 nav.menu ul li a:hover {
-    background: #69050533; 
-    color: #fff;
+    background: rgba(0, 0, 0, 0.1); /* Un fondo sutil al pasar el mouse */
+    color: #fff; /* Mantenemos el color del texto */
     border-radius: 5px;
 }
 
@@ -67,4 +71,110 @@ main.centrado {
 .caja p {
     color: #fff;
     margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+    Estilos Específicos para la Página de Login
+   ========================================================================== */
+
+/* Contenedor principal que alinea la imagen y el formulario */
+.login-contenedor {
+    display: flex;
+    flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+    justify-content: center;
+    align-items: stretch; /* Para que ambas columnas tengan la misma altura */
+    gap: 0; /* Sin espacio entre imagen y formulario */
+    width: 100%;
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin: 1rem; /* Espacio alrededor de la tarjeta de login */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Para que los hijos respeten los bordes redondeados */
+}
+
+/* Caja del formulario (sobreescribe el .caja genérico) */
+.login-contenedor .caja {
+    flex: 1;
+    min-width: 350px; /* Ancho mínimo */
+    margin: 0;
+    /* El fondo y la sombra ahora están en el contenedor padre */
+}
+
+/* Contenedor de la imagen */
+.login-imagen {
+    flex: 1;
+    min-width: 350px;
+}
+
+.login-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se deforme */
+    display: block;
+}
+
+/* Texto dentro de la caja del login */
+.login-contenedor .caja h2,
+.login-contenedor .caja p,
+.login-contenedor .caja label {
+    color: #333;
+}
+
+.login-contenedor .caja form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campos de texto del formulario */
+.login-contenedor .caja input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-contenedor .caja input:focus {
+    outline: none;
+    border-color: #e6e6e6;
+    box-shadow: 0 0 5px rgba(233, 30, 98, 0.5);
+}
+
+/* Botón de envío */
+.login-contenedor .caja button {
+    background-color: #d81b60;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-contenedor .caja button:hover {
+    background-color: #e91e63;
+}
+
+/* Párrafo y enlace de "Crear cuenta" */
+.login-contenedor .caja p {
+    margin-top: 1.5rem;
+    font-size: 14px;
+}
+
+.login-contenedor .caja p a {
+    color: #d81b60;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.login-contenedor .caja p a:hover {
+    color: #f1f1f1;
+    text-decoration: underline;
 }
