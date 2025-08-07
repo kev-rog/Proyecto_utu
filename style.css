@@ -4,44 +4,9 @@ Estilos Generales (Para todo el sitio)
 
 body {
     font-family: Arial, sans-serif;    
-    background-color: #f4f4f4; /* Un gris muy claro para el fondo */
+    background-color: #f4f4f4;
     margin: 0;
     min-height: 100vh;
-}
-
-nav.menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(233, 30, 98, 0.664);
-    width: 100%;
-    z-index: 1000;
-}
-
-nav.menu ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0.5rem 0;
-}
-
-nav.menu ul li {
-    margin: 0 1rem;
-}
-
-nav.menu ul li a {
-    color: #fff; /* Texto blanco para que se lea sobre el fondo rosa */
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem;
-    transition: background 0.2s, color 0.2s;
-}
-
-nav.menu ul li a:hover {
-    background: rgba(0, 0, 0, 0.1); /* Un fondo sutil al pasar el mouse */
-    color: #fff; /* Mantenemos el color del texto */
-    border-radius: 5px;
 }
 
 main.centrado {
@@ -74,19 +39,18 @@ main.centrado {
 }
 
 /* ==========================================================================
-    Estilos Específicos para la Página de Login
+   Estilos Específicos para la Página de Login
    ========================================================================== */
 
-/* Contenedor principal que alinea la imagen y el formulario */
 .login-contenedor {
     display: flex;
-    flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch; /* Para que ambas columnas tengan la misma altura */
-    gap: 0; /* Sin espacio entre imagen y formulario */
+    align-items: stretch;
+    gap: 0;
     width: 100%;
-    max-width: 1000px; /* Ancho máximo del contenedor */
-    margin: 1rem; /* Espacio alrededor de la tarjeta de login */
+    max-width: 1000px;
+    margin: 1rem;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -110,7 +74,7 @@ main.centrado {
 .login-imagen img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Evita que la imagen se deforme */
+    object-fit: cover;
     display: block;
 }
 
@@ -165,6 +129,7 @@ main.centrado {
 .login-contenedor .caja_1 p {
     margin-top: 1.5rem;
     font-size: 14px;
+    text-align: center;
 }
 
 .login-contenedor .caja_1 p a {
