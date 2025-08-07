@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Estilos Generales (Para todo el sitio)
+Estilos Generales (Para todo el sitio)
    ========================================================================== */
 
 body {
@@ -94,11 +94,11 @@ main.centrado {
 }
 
 /* Caja del formulario (sobreescribe el .caja genérico) */
-.login-contenedor .caja {
+.login-contenedor .caja_1 {
     flex: 1;
     min-width: 350px; /* Ancho mínimo */
     margin: 0;
-    /* El fondo y la sombra ahora están en el contenedor padre */
+    padding: 2rem; /* Espaciado interno para el contenido del formulario */
 }
 
 /* Contenedor de la imagen */
@@ -115,19 +115,19 @@ main.centrado {
 }
 
 /* Texto dentro de la caja del login */
-.login-contenedor .caja h2,
-.login-contenedor .caja p,
-.login-contenedor .caja label {
+.login-contenedor .caja_1 h2,
+.login-contenedor .caja_1 p,
+.login-contenedor .caja_1 label {
     color: #333;
 }
 
-.login-contenedor .caja form {
+.login-contenedor .caja_1 form {
     display: flex;
     flex-direction: column;
 }
 
 /* Campos de texto del formulario */
-.login-contenedor .caja input {
+.login-contenedor .caja_1 input {
     width: 100%;
     padding: 12px;
     margin-top: 0.5rem;
@@ -138,15 +138,15 @@ main.centrado {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.login-contenedor .caja input:focus {
+.login-contenedor .caja_1 input:focus {
     outline: none;
-    border-color: #e6e6e6;
+    border-color: #e91e63; /* Color de realce al hacer foco */
     box-shadow: 0 0 5px rgba(233, 30, 98, 0.5);
 }
 
 /* Botón de envío */
-.login-contenedor .caja button {
-    background-color: #d81b60;
+.login-contenedor .caja_1 button {
+    background-color: #1b3ad8;
     color: white;
     padding: 14px;
     border: none;
@@ -157,24 +157,24 @@ main.centrado {
     transition: background-color 0.3s;
 }
 
-.login-contenedor .caja button:hover {
-    background-color: #e91e63;
+.login-contenedor .caja_1 button:hover {
+    background-color:#ae00ff;
 }
 
 /* Párrafo y enlace de "Crear cuenta" */
-.login-contenedor .caja p {
+.login-contenedor .caja_1 p {
     margin-top: 1.5rem;
     font-size: 14px;
 }
 
-.login-contenedor .caja p a {
-    color: #d81b60;
+.login-contenedor .caja_1 p a {
+    color: #ae00ff;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.login-contenedor .caja p a:hover {
-    color: #f1f1f1;
+.login-contenedor .caja_1 p a:hover {
+    color: #e91e63;
     text-decoration: underline;
 }
