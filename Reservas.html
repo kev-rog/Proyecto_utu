@@ -11,9 +11,11 @@
         <nav>
             <ul>
                 <li><a href="Index.html">Inicio</a></li>
-                <li><a href="Servicios brindados.html">Servicios brindados</a></li>
-                <li><a href="Reservas.html" class="active">Reservas</a></li>
+                <li><a href="Servicios brindados.html">Servicios</a></li>
+                <li><a href="Reservas.html" class="active">Reservar Cita</a></li>
+                <li><a href="agenda.html">Ver Agenda</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -22,11 +24,42 @@
     <div class="menu-contenedor">
         <!-- Contenido principal -->
         <main class="menu-main">
-            <h2>Reservas</h2>
-            <p>
-                Desde aquí podrás gestionar tus reservas.
-                (Contenido de reservas va aquí).
-            </p>
+            <h2>Agenda tu Cita</h2>
+            <p>Selecciona una fecha y un horario disponible para reservar tu servicio.</p>
+
+            <!-- Formulario de Agenda -->
+            <form class="agenda-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicio">Servicio Deseado:</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="">-- Elige un servicio --</option>
+                        <option value="corte">Corte de Dama</option>
+                        <option value="color">Tinte Completo</option>
+                        <option value="peinado">Peinado de Fiesta</option>
+                        <option value="tratamiento">Hidratación Profunda</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Elige una fecha:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label>Horarios Disponibles para la fecha seleccionada:</label>
+                    <div class="horarios-disponibles">
+                        <input type="radio" id="h1000" name="hora" value="10:00"><label for="h1000">10:00</label>
+                        <input type="radio" id="h1100" name="hora" value="11:00"><label for="h1100">11:00</label>
+                        <input type="radio" id="h1200" name="hora" value="12:00" disabled><label for="h1200">12:00 (Ocupado)</label>
+                        <input type="radio" id="h1400" name="hora" value="14:00"><label for="h1400">14:00</label>
+                        <input type="radio" id="h1500" name="hora" value="15:00"><label for="h1500">15:00</label>
+                        <input type="radio" id="h1600" name="hora" value="16:00"><label for="h1600">16:00</label>
+                    </div>
+                </div>
+                <button type="submit">Confirmar Reserva</button>
+            </form>
         </main>
     </div>
 </body>
