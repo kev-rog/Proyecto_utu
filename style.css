@@ -1,247 +1,55 @@
 /* ==========================================================================  
-   Estilos Generales (Para todo el sitio)  
+   Estilos Generales  
 ========================================================================== */
-
-/* Menú fijo arriba con mismo estilo que login/registro */
-.menu-header {
-    position: fixed;
-    display: flex; /* Activa Flexbox para alinear los elementos en una fila */
-    top: 0;
-    left: 0;
-    width: 100%; /* Asegura que esté por encima de otros elementos */
-    background-color: rgba(233, 30, 98, 0.85); /* mismo color */
-    padding: 0.5rem 1rem ;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* sombra para que resalte */
-}
-
 body {
-    /* Añadimos padding-top para dejar espacio al menú con position: fixed */
-    /* Un valor de 5rem (80px) suele ser suficiente para un header de este tipo */
-    padding-top: 4rem; 
-    font-family: Arial, sans-serif;    
+    /* deja espacio automático según alto del menú */
+    padding-top: calc(0.5rem + 50px);
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    min-height: 100vh;
 }
 
-main.centrado {
+/* ==========================================================================  
+   Menú Principal  
+========================================================================== */
+.menu-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(233, 30, 98, 0.85);
+    padding: 0.5rem 2rem; /* más espacio a los lados */
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
     box-sizing: border-box;
-}   
-
-.caja {
-    background-color: rgba(233, 30, 98, 0.664);
-    padding: 2rem;
-    margin: 1rem 0;
-    border-radius: 10px;
-    min-width: 300px;
-    text-align: center;
-}
-
-.caja h2 {
-    color: #fff;
-    margin-bottom: 1rem;
-}
-
-.caja p {
-    color: #fff;
-    margin-bottom: 1rem;
-}
-
-/* ==========================================================================  
-   Estilos Específicos para la Página de Login  
-========================================================================== */
-
-.login-contenedor {
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 0;
-    width: 100%;
-    max-width: 1000px;
-    margin: 1rem;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.login-contenedor .caja_1 {
-    flex: 1;
-    min-width: 350px;
-    margin: 0;
-    padding: 2rem;
-}
-
-.login-imagen {
-    flex: 1;
-    min-width: 350px;
-}
-
-.login-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.login-contenedor .caja_1 h2,
-.login-contenedor .caja_1 p,
-.login-contenedor .caja_1 label {
-    color: #333;
-}
-
-.login-contenedor .caja_1 form {
-    display: flex;
-    flex-direction: column;
-}
-
-.login-contenedor .caja_1 input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.login-contenedor .caja_1 input:focus {
-    outline: none;
-    border-color: #e91e63;
-    box-shadow: 0 0 5px rgba(233, 30, 98, 0.5);
-}
-
-.login-contenedor .caja_1 button {
-    background-color: #1b3ad8;
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.login-contenedor .caja_1 button:hover {
-    background-color: #ae00ff;
-}
-
-.login-contenedor .caja_1 p {
-    margin-top: 1.5rem;
-    font-size: 14px;
-    text-align: center;
-}
-
-.login-contenedor .caja_1 p a {
-    color: #ae00ff;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.login-contenedor .caja_1 p a:hover {
-    color: #e91e63;
-    text-decoration: underline;
-}
-
-/* ==========================================================================  
-   Estilos para la Página Principal  
-========================================================================== */
-
-.principal-contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 0;
-    width: 100%;
-    max-width: 1000px;
-    margin: 2rem auto;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.principal-imagen {
-    flex: 1;
-    min-width: 350px;
-    background: #e91e63;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.principal-imagen img {
-    width: 80%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.principal-caja {
-    flex: 1;
-    min-width: 350px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.principal-caja h2 {
-    color: #1b3ad8;
-    margin-bottom: 1rem;
-}
-
-.principal-caja p {
-    color: #333;
-    margin-bottom: 1rem;
-    font-size: 16px;
-}
-
-/* ==========================================================================  
-   Estilos del Menú Principal (similar al Login/Register)  
-========================================================================== */
-
-.menu-contenedor {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    /* El padding-top del body ya crea el espacio superior, solo necesitamos margen inferior y centrado horizontal */
-    margin: 0 auto 2rem auto;
-    overflow: hidden;
 }
 
 .menu-header h1 {
     color: #fff;
     font-size: 1.5rem;
     margin: 0;
+    white-space: nowrap; /* evita que se corte el título */
+}
+
+.menu-header nav {
+    flex-shrink: 0; /* evita que el nav se achique demasiado */
+    padding-right: 1rem; /* espacio extra al final para que el último botón no se corte */
 }
 
 .menu-header nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se acomoden si hay muchos */
+    flex-wrap: wrap; /* permite que el menú baje de línea si hay muchos ítems */
     gap: 1rem;
     margin: 0;
     padding: 0;
-    max-width: 100vw; /* Evita que se salga del viewport */
-    overflow-x: auto; /* Permite desplazamiento horizontal si hay muchos enlaces */
 }
 
 .menu-header nav ul li {
-    flex: 0 0 auto; /* Cada ítem mantiene su tamaño */
+    position: relative;
 }
 
 .menu-header nav ul li a {
@@ -250,6 +58,7 @@ main.centrado {
     padding: 8px 14px;
     border-radius: 5px;
     transition: background 0.3s;
+    white-space: nowrap; /* mantiene cada botón en una sola línea */
 }
 
 .menu-header nav ul li a:hover,
@@ -257,41 +66,190 @@ main.centrado {
     background-color: #1b3ad8;
 }
 
-.menu-main {
-    padding: 2rem;
-    text-align: center;
+/* Submenú */
+.menu-header nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-radius: 5px;
+    padding: 0;
 }
 
+.menu-header nav ul li ul li {
+    width: 100%;
+}
+
+.menu-header nav ul li ul li a {
+    display: block;
+    color: #333;
+    padding: 10px;
+    border-radius: 0;
+}
+
+.menu-header nav ul li ul li a:hover {
+    background-color: #f4f4f4;
+    color: #e91e63;
+}
+
+/* Mostrar submenú al pasar */
+.menu-header nav ul li:hover ul {
+    display: block;
+}
+
+/* ==========================================================================  
+   Contenedores principales  
+========================================================================== */
+main.centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.menu-contenedor,
+.principal-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+}
+
+/* ==========================================================================  
+   Login & Register  
+========================================================================== */
+.login-contenedor, 
+.register-contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-imagen, 
+.register-imagen {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    background: #f8f8f8;
+}
+
+.login-imagen img,
+.register-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caja_1 {
+    flex: 1;
+    min-width: 300px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caja_1 h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.caja_1 form {
+    display: flex;
+    flex-direction: column;
+}
+
+.caja_1 label {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.caja_1 input,
+.caja_1 button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.caja_1 input {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.caja_1 button {
+    background-color: #1b3ad8;
+    color: white;
+    border: none;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.caja_1 button:hover {
+    background-color: #ae00ff;
+}
+
+.caja_1 p {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.caja_1 p a {
+    color: #ae00ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================================================  
+   Contenido principal  
+========================================================================== */
+.principal-caja,
+.menu-main {
+    flex: 1;
+    min-width: 350px;
+    padding: 2rem;
+}
+
+.principal-caja h2,
 .menu-main h2 {
     color: #1b3ad8;
     margin-bottom: 1rem;
 }
 
+.principal-caja p,
 .menu-main p {
     color: #333;
-    font-size: 16px;
+    margin-bottom: 1rem;
 }
 
-.btn-logout {
-    background-color: #e74c3c;
-    padding: 8px 14px;
-    border-radius: 5px;
-}
-
-.btn-logout:hover {
-    background-color: #c0392b;
-}
-
-/* Estilos para la página de servicios */
+/* ==========================================================================  
+   Servicios  
+========================================================================== */
 .servicio-categoria {
     margin-bottom: 2rem;
-    text-align: left;
     border-bottom: 1px solid #eee;
     padding-bottom: 1.5rem;
-}
-
-.servicio-categoria:last-child {
-    border-bottom: none;
 }
 
 .servicio-categoria h3 {
@@ -299,13 +257,12 @@ main.centrado {
     margin-bottom: 1rem;
 }
 
-/* Estilos para el formulario de reservas */
+/* ==========================================================================  
+   Reservas  
+========================================================================== */
 .reserva-form {
-    margin-top: 2rem;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+    margin: 2rem auto;
 }
 
 .reserva-form .form-group {
@@ -315,7 +272,6 @@ main.centrado {
 .reserva-form label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #333;
     font-weight: bold;
 }
 
@@ -325,33 +281,21 @@ main.centrado {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
 }
 
 .reserva-form button {
     width: 100%;
-    background-color: #1b3ad8;
-    color: white;
     padding: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
 }
 
-.reserva-form button:hover {
-    background-color: #e91e63;
-}
-
-/* Estilos para la página de contacto */
+/* ==========================================================================  
+   Contacto  
+========================================================================== */
 .info-contacto {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 2rem;
-    text-align: center;
 }
 
 .info-item {
@@ -365,84 +309,31 @@ main.centrado {
     margin-bottom: 0.5rem;
 }
 
-/* Estilos para el nuevo formulario de Agenda */
-.agenda-form {
-    margin-top: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+/* ==========================================================================  
+   Media Queries  
+========================================================================== */
+@media (min-width: 768px) {
+    .login-contenedor,
+    .register-contenedor {
+        flex-direction: row;
+    }
+    .login-imagen,
+    .register-imagen,
+    .caja_1 {
+        flex: 1 1 50%;
+    }
 }
 
-.agenda-form input[type="date"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 16px;
+@media (max-width: 768px) {
+    .login-contenedor,
+    .register-contenedor {
+        max-width: 400px;
+    }
+    .login-imagen,
+    .register-imagen {
+        max-height: 200px;
+    }
+    .menu-header nav ul {
+        justify-content: center;
+    }
 }
-
-.horarios-disponibles {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 10px;
-    margin-top: 0.5rem;
-}
-
-.horarios-disponibles input[type="radio"] {
-    display: none; /* Ocultamos el radio button real */
-}
-
-.horarios-disponibles label {
-    display: block;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.horarios-disponibles input[type="radio"]:checked + label {
-    background-color: #1b3ad8;
-    color: #fff;
-    border-color: #1b3ad8;
-}
-
-.horarios-disponibles input[type="radio"]:disabled + label {
-    background-color: #f4f4f4;
-    color: #aaa;
-    cursor: not-allowed;
-    text-decoration: line-through;
-}
-
-.agenda-form button {
-    width: 100%;
-    margin-top: 1rem;
-}
-
-/* Estilos para la lista de reservas */
-.lista-reservas {
-    margin-top: 2.5rem;
-    text-align: left;
-}
-
-.lista-reservas h3 {
-    text-align: center;
-    color: #e91e63;
-    margin-bottom: 1.5rem;
-}
-
-.reserva-item {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-left: 5px solid #e91e63;
-    padding: 1rem 1.5rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
