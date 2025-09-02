@@ -1,0 +1,145 @@
+/* styles-reservas.css - Aligned with existing page style */
+
+.agenda-form {
+    background-color: var(--bg-primary);
+    padding: 3rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.6s ease; /* Reusing animation from base.css */
+}
+
+.agenda-form h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--text-light);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* primary-color with transparency */
+    outline: none;
+    background-color: var(--bg-primary);
+}
+
+.horarios-disponibles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.horarios-disponibles input[type="radio"] {
+    display: none;
+}
+
+.horarios-disponibles label {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid var(--text-light);
+}
+
+.horarios-disponibles label:hover {
+    background-color: rgba(99, 102, 241, 0.1); /* primary-color with transparency */
+    color: var(--primary-color);
+}
+
+.horarios-disponibles input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.horarios-disponibles input[type="radio"]:disabled + label {
+    background-color: var(--bg-secondary);
+    color: var(--text-light);
+    cursor: not-allowed;
+    text-decoration: line-through;
+    border-color: var(--text-light);
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: 2rem;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-md);
+}
+
+button[type="submit"]:hover {
+    opacity: 0.9;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    opacity: 0.8;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(0);
+}
+
+/* Animation from base.css */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

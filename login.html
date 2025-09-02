@@ -4,25 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login | Proyecto UTU</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles-base.css">
+    <link rel="stylesheet" href="styles-login-register-new.css">
 </head>
-<body>
+
+<body class="login-page">
+
 <main class="centrado">
     <div class="login-contenedor">
         <div class="login-imagen">
             <img src="Login.jpg" alt="Imagen Login">
         </div>
         <div class="caja_1">
-            <br>
-            <br>
-            <br>
-            <br>
             <h2>Iniciar Sesión</h2>
-            <form>
-                <label for="usuario">Usuario</label>
-                <input type="text" id="usuario" name="usuario" required>
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
+            <form action="login.php" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" required>
                 <button type="submit">Ingresar</button>
             </form>
             <p>¿No tienes cuenta? <a href="register.html">Crear cuenta</a></p>
