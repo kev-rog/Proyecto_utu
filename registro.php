@@ -15,20 +15,23 @@ if (isset($_POST['registrar'])) {
             strlen($Apellido) >= 1 &&
             strlen($Contrasena) >= 1
         ) {
-            // Ya no creamos una nueva conexión, usamos $conn de conexion.php
+            // Eliminada la conexión redundante: 
+            // $conexion = mysqli_connect("localhost", "root", "", "bd_peluqueria");
 
             // Insertar en Usuario
             $consultaUsuario = "INSERT INTO Usuario (Nombre, Apellido, Correo, Contrasena)
                 VALUES ('$Nombre','$Apellido','$Correo','$Contrasena')";
-            $resultadoUsuario = $conn->query($consultaUsuario);
+            // Cambiado a usar $conn en lugar de $conexion
+            $resultadoUsuario = mysqli_query($conn, $consultaUsuario);
 
             if ($resultadoUsuario) {
                 // Obtener el ID del usuario recién creado
-                $usuarioID = $conn->insert_id;
+                $usuarioID = mysqli_insert_id($conn);
 
                 // Insertar en Cliente
                 $consultaCliente = "INSERT INTO Cliente (UsuarioID) VALUES ('$usuarioID')";
-                $resultadoCliente = $conn->query($consultaCliente);
+                // Cambiado a usar $conn en lugar de $conexion
+                $resultadoCliente = mysqli_query($conn, $consultaCliente);
 
                 if ($resultadoCliente) {
                     echo '<h3 class="success">Tu registro ha sido completado correctamente</h3>';
