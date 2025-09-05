@@ -19,8 +19,8 @@ if (isset($_POST['registrar'])) {
             strlen($Contrasena) >= 1
         ) {
             // Insertar en tabla Usuario
-            $consultaUsuario = "
-             INSERT INTO Usuario (Nombre,Apellido, Correo, Contrasena) 
+            $consultaUsuario = "INSERT INTO Usuario (Nombre,Apellido, Correo, Contrasena) 
+             
      VALUES ('$Nombre', '$Apellido', '$Correo', '$Contrasena')";
             
     $resultadoUsuario = mysqli_query($conn,$consultaUsuario);
