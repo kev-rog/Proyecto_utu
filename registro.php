@@ -15,20 +15,20 @@ if (isset($_POST['registrar'])) {
             strlen($Apellido) >= 1 &&
             strlen($Contrasena) >= 1
         ) {
-            $conexion = mysqli_connect("localhost", "root", "", "bd_peluqueria");
+            // Ya no creamos una nueva conexión, usamos $conn de conexion.php
 
             // Insertar en Usuario
             $consultaUsuario = "INSERT INTO Usuario (Nombre, Apellido, Correo, Contrasena)
                 VALUES ('$Nombre','$Apellido','$Correo','$Contrasena')";
-            $resultadoUsuario = mysqli_query($conexion, $consultaUsuario);
+            $resultadoUsuario = $conn->query($consultaUsuario);
 
             if ($resultadoUsuario) {
                 // Obtener el ID del usuario recién creado
-                $usuarioID = mysqli_insert_id($conexion);
+                $usuarioID = $conn->insert_id;
 
                 // Insertar en Cliente
                 $consultaCliente = "INSERT INTO Cliente (UsuarioID) VALUES ('$usuarioID')";
-                $resultadoCliente = mysqli_query($conexion, $consultaCliente);
+                $resultadoCliente = $conn->query($consultaCliente);
 
                 if ($resultadoCliente) {
                     echo '<h3 class="success">Tu registro ha sido completado correctamente</h3>';
