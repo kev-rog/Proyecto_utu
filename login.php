@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bd_peluqueria";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("conexion.php"); // Incluir la conexión existente en lugar de crear una nueva
 
 // Verifica si los datos existen antes de usarlos
 if (isset($_POST['Correo']) && isset($_POST['Contrasena'])) {
@@ -17,6 +8,7 @@ if (isset($_POST['Correo']) && isset($_POST['Contrasena'])) {
 
     // Cambia 'correo' por el nombre real de la columna en tu tabla
     $sql = "SELECT * FROM usuario WHERE correo = '$correo' AND Contrasena = '$pass'";
+    // Usar la conexión existente $conn en lugar de crear una nueva
     $result = $conn->query($sql);
 
     if ($result && $result->num_rows > 0) {
