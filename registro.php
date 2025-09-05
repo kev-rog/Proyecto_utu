@@ -20,10 +20,10 @@ if (isset($_POST['registrar'])) {
         ) {
             // Insertar en tabla Usuario
             $consultaUsuario = "
-                INSERT INTO Usuario (Nombre, Apellido, Correo, Contrasena)
-                VALUES ('$Nombre', '$Apellido', '$Correo', '$Contrasena')
-            ";
-            $resultadoUsuario = mysqli_query($conn, $consultaUsuario);
+             INSERT INTO Usuario (Nombre,Apellido, Correo, Contrasena) 
+     VALUES ('$Nombre', '$Apellido', '$Correo', '$Contrasena')";
+            
+    $resultadoUsuario = mysqli_query($conn,$consultaUsuario);
 
             if ($resultadoUsuario) {
                 // Obtener el ID del usuario recién creado
