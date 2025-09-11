@@ -38,8 +38,8 @@ if (isset($_POST['registrar']) && $_SERVER["REQUEST_METHOD"] === "POST") {
             $resultadoCliente = mysqli_query($conn, $consultaCliente);
 
             if ($resultadoCliente) {
-                echo '<h3 class="success">✅ Tu registro ha sido completado correctamente</h3>';
-            } else {
+                header("Location: login.html");
+                        } else {
                 echo '<h3 class="error">❌ Ocurrió un error al registrar como cliente</h3>';
             }
         } else {
