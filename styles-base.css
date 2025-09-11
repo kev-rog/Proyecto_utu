@@ -204,6 +204,11 @@ body {
         font-size: 2rem;
     }
 }
+.menu-main h2, .menu-main p {
+ text-align: center;
+ }
+
+
 
 @media (max-width: 480px) {
     body {
