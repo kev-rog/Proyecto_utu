@@ -1,177 +1,72 @@
-/* styles-login-register-new.css */
 
-/* Using variables from styles-base.css for a consistent look */
-body {
+
+/* Ajustes para el body en las páginas de login/registro */
+body.login-register-page {
+    /* Centra el contenido vertical y horizontalmente */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 0; /* Sobrescribe el padding de styles-base.css */
+    min-height: 100vh;
 }
 
 .login-contenedor {
     background-color: var(--bg-primary);
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-xl);
-    overflow: hidden;
-    display: flex;
-    max-width: 960px;
-    width: 100%;
-    margin: 2rem;
-}
-
-.login-imagen {
-    display: none;
-    flex: 1;
+    box-shadow: var(--shadow-lg); /* Usamos un shadow consistente */
 }
 
 .login-imagen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
 }
 
-
-
-
-.caja_1 {
-    flex: 1;
-    padding: 3rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.caja_1 h2 {
-    color: var(--text-primary);
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    text-align: center;
+.form-box h2 {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 700;
 }
 
-.caja_1 form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.caja_1 label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-}
-
-.caja_1 input {
+.form-box .form-control {
     padding: 0.875rem 1rem;
-    border: 1px solid #d1d5db; /* neutral-300 */
+    border: 1px solid #d1d5db;
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: var(--transition);
     background-color: var(--bg-secondary);
 }
 
-.caja_1 input:focus {
+.form-box .form-control:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-.caja_1 button {
+.form-box .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: white;
     padding: 1rem;
     border: none;
     border-radius: var(--border-radius);
-    font-size: 1rem;
     font-weight: 600;
-    cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow-md);
 }
 
-.caja_1 button:hover {
+.form-box .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
-.caja_1 p {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-}
-
-.caja_1 p a {
+.form-box .form-text a {
     color: var(--primary-color);
-    text-decoration: none;
     font-weight: 600;
 }
 
-.caja_1 p a:hover {
-    text-decoration: underline;
-}
-
-/* Show image on larger screens */
-@media (min-width: 768px) {
-    .login-imagen {
-        display: block;
-    }
-}
-
-@media (max-width: 480px) {
-    .caja_1 {
-        padding: 2rem 1.5rem;
-    }
-    .caja_1 h2 {
-        font-size: 1.75rem;
-    }
-}
-
-/* Register page specific adjustments */
-.register-page .login-contenedor {
-    max-width: 800px;
-    margin: 1rem auto;
-}
-
-.register-page .caja_1 {
-    padding: 2.5rem 2rem;
-}
-
-.register-page .caja_1 h2 {
-    margin-bottom: 1.5rem; /* from 2rem */
-}
-
-.register-page .caja_1 form {
-    gap: 0.8rem; /* from 1rem */
-}
-
-.register-page .caja_1 p {
-    margin-top: 1.5rem; /* from 2rem */
-}
-
-.register-page .caja_1 label {
-    font-size: 0.8rem; /* from 0.875rem */
-    margin-bottom: 4px; /* from 8px (implicit) */
-}
-
-.register-page .caja_1 input {
-    padding: 0.6rem 0.8rem; /* from 0.875rem 1rem */
-    font-size: 0.9rem; /* from 1rem */
-}
-
-.register-page .caja_1 button {
-    padding: 0.8rem; /* from 1rem */
-    font-size: 0.9rem; /* from 1rem */
-}
-
-body.login-page,
-body.register-page {
-    padding-top: 0;
-}
-
-body.register-page {
-    align-items: flex-start;
+.form-box .form-text a:hover {
+    text-decoration: underline !important;
 }

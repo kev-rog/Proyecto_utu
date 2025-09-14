@@ -1,8 +1,6 @@
 /* ==========================================================================  
    Estilos específicos para Index.html
 ========================================================================== */
-
-/* Contenedor principal de inicio */
 .menu-main h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -26,30 +24,42 @@
     font-weight: 600;
 }
 
-/* Secciones específicas de la página de inicio */
-.principal-caja {
-    background: var(--bg-primary);
-    border-radius: var(--border-radius-lg);
-    padding: 3rem;
-    box-shadow: var(--shadow-xl);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.principal-caja h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
+/* Botón de Llamado a la Acción (Call to Action) */
+.btn-cta {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
 }
 
-.principal-caja p {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
+.btn-cta:hover {
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 25px -5px rgb(0 0 0 / 0.2);
+}
+
+/* Tarjetas de Servicios Destacados */
+.card-servicio {
+    border: none;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.card-servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-servicio .card-title {
+    color: var(--primary-dark);
+    font-weight: 600;
 }

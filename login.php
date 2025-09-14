@@ -1,25 +1,33 @@
 <?php
-include("conexion.php"); // Incluir la conexión existente en lugar de crear una nueva
+session_start();
+include("conexion.php");
 
-// Verifica si los datos existen antes de usarlos
-if (isset($_POST['Correo']) && isset($_POST['Contrasena'])) {
-    $correo = $_POST['Correo'];
-    $pass = $_POST['Contrasena'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $correo = trim($_POST['Correo']);
+    $pass   = trim($_POST['Contrasena']);
 
-    // Cambia 'correo' por el nombre real de la columna en tu tabla
-    $sql = "SELECT * FROM usuario WHERE correo = '$correo' AND Contrasena = '$pass'";
-    // Usar la conexión existente $conn en lugar de crear una nueva
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT UsuarioID, Nombre, Apellido, Correo, Contrasena FROM usuario WHERE Correo = ?");
+    $stmt->bind_param("s", $correo);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result && $result->num_rows > 0) {
-        header("Location: index.html");
-        exit();
-    } else {
-        echo "<h1>Usuario o contraseña incorrectos</h1>";
-    }
-} else {
-    echo "<h1>Por favor complete todos los campos</h1>";
-}
+        $usuario = $result->fetch_assoc();
 
-$conn->close();
-?>
+        if (password_verify($pass, $usuario['Contrasena'])) {
+            session_regenerate_id(true);
+            $_SESSION['usuario_id'] = $usuario['UsuarioID'];
+            $_SESSION['usuario']    = $usuario['Correo'];
+            $_SESSION['nombre']     = $usuario['Nombre'];
+            $_SESSION['apellido']   = $usuario['Apellido'];
+
+            header("Location: index.php");
+            exit();
+        }
+    }
+
+    // Error de login
+    $_SESSION['error'] = "Usuario o contraseña incorrectos";
+    header("Location: inicio_sesion.php");
+    exit();
+}

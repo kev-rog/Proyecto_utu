@@ -1,0 +1,32 @@
+/* styles-contacto.css */
+
+.contact-info-item {
+    padding: 2rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.contact-info-item:hover {
+    background-color: var(--bg-secondary);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.map-container {
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden; /* Asegura que el contenido respete los bordes redondeados */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+    border: 0; /* Quitamos cualquier borde por defecto del iframe */
+}
