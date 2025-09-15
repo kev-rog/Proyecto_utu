@@ -20,7 +20,7 @@ if (isset($_GET['cancelar'])) {
 
     if ($reservaID_a_cancelar) {
         // Actualizamos el estado a 'Cancelada' solo si la reserva pertenece al usuario actual
-        $stmt_cancelar = $conn->prepare("UPDATE reservas SET Estado = 'Cancelada' WHERE ReservaID = ? AND ClienteID = ?");
+        $stmt_cancelar = $conn->prepare("UPDATE reserva SET Estado = 'Cancelada' WHERE ReservaID = ? AND ClienteID = ?");
         $stmt_cancelar->bind_param("ii", $reservaID_a_cancelar, $clienteID);
         
         if ($stmt_cancelar->execute() && $stmt_cancelar->affected_rows > 0) {
@@ -42,9 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['reservar'])) {
     if (empty($servicioID) || empty($fecha) || empty($hora)) {
         $mensaje_reserva = '<div class="alert alert-danger">Por favor, completa todos los campos.</div>';
     } else {
-        // Insertar la reserva en la base de datos
-        $stmt = $conn->prepare("INSERT INTO reservas (ClienteID, ServicioID, FechaReserva, HoraReserva) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iiss", $clienteID, $servicioID, $fecha, $hora);
+        // Insertar la reserva en la base de datos con su estado inicial
+        $estado_inicial = 'Pendiente';
+        $stmt = $conn->prepare("INSERT INTO reserva (ClienteID, ServicioID, Fecha, Hora, Estado) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("iisss", $clienteID, $servicioID, $fecha, $hora, $estado_inicial);
 
         if ($stmt->execute()) {
             $_SESSION['mensaje_reserva'] = '<div class="alert alert-success">¡Tu reserva ha sido registrada con éxito!</div>';
@@ -67,15 +68,15 @@ if (isset($_SESSION['mensaje_reserva'])) {
 
 // 1. Obtener la lista de servicios para el dropdown
 $servicios = [];
-$resultado_servicios = $conn->query("SELECT ServicioID, Nombre, Precio FROM servicios ORDER BY Nombre");
+$resultado_servicios = $conn->query("SELECT ServicioID, Nombre, Precio FROM servicio ORDER BY Nombre");
 if ($resultado_servicios) {
     $servicios = $resultado_servicios->fetch_all(MYSQLI_ASSOC);
 }
 
 // 2. Obtener las reservas del usuario actual
 $reservas_usuario = [];
-$clienteID = $_SESSION['usuario_id'];
-$stmt_reservas = $conn->prepare("SELECT r.ReservaID, r.FechaReserva, r.HoraReserva, s.Nombre, r.Estado FROM reservas r JOIN servicios s ON r.ServicioID = s.ServicioID WHERE r.ClienteID = ? ORDER BY r.FechaReserva DESC, r.HoraReserva DESC");
+$clienteID = $_SESSION['usuario_id']; // Asumimos que guardaste 'usuario_id' en el login
+$stmt_reservas = $conn->prepare("SELECT r.ReservaID, r.Fecha, r.Hora, r.Estado, s.Nombre FROM reserva r JOIN servicio s ON r.ServicioID = s.ServicioID WHERE r.ClienteID = ? ORDER BY r.Fecha DESC, r.Hora DESC");
 $stmt_reservas->bind_param("i", $clienteID);
 $stmt_reservas->execute();
 $resultado_reservas = $stmt_reservas->get_result();
@@ -244,8 +245,8 @@ $horarios = [
                                 <?php foreach ($reservas_usuario as $reserva): ?>
                                     <tr>
                                         <td><?php echo htmlspecialchars($reserva['Nombre']); ?></td>
-                                        <td><?php echo htmlspecialchars(date("d/m/Y", strtotime($reserva['FechaReserva']))); ?></td>
-                                        <td><?php echo htmlspecialchars(date("H:i", strtotime($reserva['HoraReserva']))); ?></td>
+                                        <td><?php echo htmlspecialchars(date("d/m/Y", strtotime($reserva['Fecha']))); ?></td>
+                                        <td><?php echo htmlspecialchars(date("H:i", strtotime($reserva['Hora']))); ?></td>
                                         <td>
                                             <span class="badge <?php echo $reserva['Estado'] === 'Cancelada' ? 'bg-danger' : 'bg-primary'; ?>">
                                                 <?php echo htmlspecialchars($reserva['Estado']); ?>

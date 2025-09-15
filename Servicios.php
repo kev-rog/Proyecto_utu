@@ -6,7 +6,7 @@ $esta_logueado = isset($_SESSION['usuario']);
 
 // Obtener los servicios de la base de datos
 $servicios_db = [];
-$resultado_servicios = $conn->query("SELECT ServicioID, Nombre, Descripcion, Precio FROM servicios ORDER BY ServicioID");
+$resultado_servicios = $conn->query("SELECT ServicioID, Nombre, Descripcion, Precio FROM servicio ORDER BY ServicioID");
 if ($resultado_servicios) {
     $servicios_db = $resultado_servicios->fetch_all(MYSQLI_ASSOC);
 }
